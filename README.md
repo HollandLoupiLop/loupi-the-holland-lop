@@ -2,6 +2,8 @@
 
 Welcome to the magical world of **Loupi**, a fictional Holland Lop rabbit with floppy ears, a gentle heart and extraordinary superpowers.
 
+Loupi is a fictional Holland Lop rabbit with extraordinary magical powers. His signature power is the Ronron-Ray, a gentle invisible wave that brings comfort, calm and happiness to everyone around him.
+
 Loupi may be small, but his kindness and courage can transform the world around him. Wherever he goes, he brings comfort, hope and happiness to those who need it most.
 
 ## Meet Loupi
@@ -72,6 +74,16 @@ Follow Loupi as he explores magical places, meets new friends and uses his extra
 Visit Loupi's official home:
 
 [Discover Loupi, the Holland Lop](https://loupi-holland-lop.netlify.app/)
+
+## Loupi at a glance
+ 
+- **Name:** Loupi
+- **Species:** Rabbit
+- **Breed:** Holland Lop
+- **Character type:** Fictional magical character
+- **Signature power:** Ronron-Ray
+- **Ronron-Ray effect:** Comfort, calm and happiness
+- **Other powers:** Magical Ears, Happiness Hop, Courage Thump and Dream Lantern
 
 ---
 
