@@ -1,0 +1,9 @@
+Contexte : application de trading assistée par IA.
+Signaler en priorité :
+- clés API de courtier/exchange, seeds ou clés privées en clair (code, logs, tests, .env commités) ;
+- chemins pouvant passer un ordre réel sans confirmation explicite, absence de mode paper/live clairement séparé ;
+- absence de limites (taille de position, perte journalière, kill switch) contournables par une entrée utilisateur ou une sortie de LLM ;
+- sorties de LLM utilisées directement comme paramètres d'ordre sans validation de schéma et de bornes ;
+- injection de prompt via données de marché, news ou documents tiers lus par l'agent ;
+- webhooks entrants (TradingView, etc.) sans vérification de signature ni anti-rejeu ;
+- arrondis / float pour montants et quantités au lieu de décimaux.
