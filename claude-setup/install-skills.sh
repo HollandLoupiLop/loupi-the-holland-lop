@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Reproduit sur ta machine l'installation auditée le 2026-10-27.
-# Chaque dépôt est épinglé sur le commit audité : une mise à jour amont n'est
+# Chaque dépôt est épinglé sur le commit audité (claude-seo : tag v2.5.0, que son
+# install.sh re-clone lui-même) : une mise à jour amont n'est
 # jamais installée sans nouvel audit. N'écrit que dans ~/.claude/skills et
 # ~/.claude/agents (claude-seo) ; aucune config, aucun MCP, aucun settings.json.
 set -euo pipefail
