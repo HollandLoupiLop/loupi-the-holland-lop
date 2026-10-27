@@ -36,13 +36,18 @@ rm -rf "$SKILLS/seo-audit"
 git clone -q --depth 1 --branch v2.5.0 https://github.com/AgriciDaniel/claude-seo "$TMP/claude-seo"
 CLAUDE_SEO_TAG=v2.5.0 bash "$TMP/claude-seo/install.sh"
 
-# Skills perso (archive privée, hors dépôt public) : extraire skills-perso.tar.gz
-# à côté de ce script ou passer son chemin en argument.
-ARCHIVE="${1:-$HERE/skills-perso.tar.gz}"
-if [ -f "$ARCHIVE" ]; then
-  tar xzf "$ARCHIVE" -C "$TMP" && cp -r "$TMP/skills/"* "$SKILLS/"
-else
-  echo "Skills perso non trouvées ($ARCHIVE) : ignorées."
-fi
+# Allège la liste : au-delà d'environ 100 skills, Claude Code tronque les
+# descriptions et certaines ne se déclenchent plus.
+# - sous-skills Remotion déjà incluses dans remotion-best-practices ;
+# - extensions claude-seo qui exigent une clé API payante non configurée.
+for s in remotion-captions remotion-create remotion-docs remotion-interactivity \
+         remotion-maps remotion-markup remotion-multimedia remotion-render \
+         remotion-saas remotion-studio remotion-upgrade \
+         seo-ahrefs seo-dataforseo seo-firecrawl seo-matomo seo-profound seo-seranking; do
+  rm -rf "${SKILLS:?}/$s"
+done
+
+# Skills perso (version publique, sans données internes : elles lisent Drive).
+cp -r "$HERE/skills/"* "$SKILLS/"
 
 echo "OK — $(ls "$SKILLS" | wc -l) skills dans $SKILLS. Redémarre Claude Code."

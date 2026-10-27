@@ -1,6 +1,6 @@
 # Skills Claude Code : audit et installation (27/10/2026)
 
-L'installation a été faite dans une **session cloud éphémère** de Claude Code. Pour retrouver les mêmes skills sur ta machine, lance `./install-skills.sh [chemin/skills-perso.tar.gz]` : chaque dépôt y est épinglé sur le commit audité.
+L'installation a été faite dans une **session cloud éphémère** de Claude Code. Pour retrouver les mêmes skills sur ta machine, lance `./install-skills.sh` : chaque dépôt y est épinglé sur le commit audité.
 
 ## Audit des dépôts
 
@@ -16,7 +16,7 @@ L'installation a été faite dans une **session cloud éphémère** de Claude Co
 
 Exclus à ta demande : anthropics/skills, React Native, UI/UX Pro Max.
 
-## Skills perso (archive privée `skills-perso.tar.gz`, volontairement absente de ce dépôt public)
+## Skills perso (`skills/`, version publique : prix, IDs et données internes sont lus dans Google Drive au moment de l'usage)
 
 | Skill | Usage |
 |---|---|
@@ -25,11 +25,17 @@ Exclus à ta demande : anthropics/skills, React Native, UI/UX Pro Max.
 | `ecommerce-brand-director` | Loupi Gang (Shopify/Printful, US) et Les Aventures de Loupi (KDP) |
 | `video-production-director` | Vidéos 9:16 : storyboard, puis WanGP/Higgsfield, montage Remotion et QC |
 
-## Point d'attention : nombre de skills
+## Nombre de skills
 
-Avec environ 150 skills, Claude Code tronque les descriptions dans sa liste, et certaines skills ne se déclenchent plus. En test, `growth-conversion` et `video-production-director` ne se déclenchaient pas. Elles se déclenchent avec le budget levé (`SLASH_COMMAND_TOOL_CHAR_BUDGET`, ou les réglages `skillListingBudgetFraction` / `skillListingMaxDescChars`). Tu as deux options :
-- augmenter ce budget dans tes réglages ;
-- ou désinstaller ce qui ne te sert pas, par exemple les 11 skills Remotion déjà couvertes par `remotion-best-practices`, ou les extensions claude-seo sans clé API (ahrefs, seranking, profound…).
+Au-delà d'environ 100 skills, Claude Code tronque les descriptions et certaines skills ne se déclenchent plus. Le script retire donc :
+- les 11 sous-skills Remotion, déjà incluses dans `remotion-best-practices` ;
+- les 6 extensions claude-seo qui demandent une clé API payante (ahrefs, dataforseo, firecrawl, matomo, profound, seranking).
+
+Résultat : 99 skills, et les 4 skills perso se déclenchent seules (5 tests sur 5).
+
+## Sessions cloud : installation automatique
+
+`cloud-hook/` contient un hook SessionStart prêt à l'emploi. Pour l'activer, copie `cloud-hook/session-start.sh` dans `.claude/hooks/` et `cloud-hook/settings.json` dans `.claude/`, puis fusionne dans `main`. Le premier démarrage prend environ 4 minutes ; ensuite c'est instantané, tant que le script et les skills ne changent pas.
 
 ## Sécurité
 
